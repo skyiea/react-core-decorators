@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/skyiea/react-core-decorators#readme",
   "devDependencies": {
-    "babel": "^5.8.29"
+    "babel": "^6.3.26",
+    "babel-cli": "^6.3.17",
+    "babel-plugin-syntax-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13"
   }
 }

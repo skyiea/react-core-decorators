@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * Inherits predefined set of static members from super class including merging them with target class static members
  * @decorator
@@ -14,12 +16,12 @@ export function InheritStatic(targetClass) {
 
     for (const propName of propsToInherit) {
         if (superClass[propName]) {
-            const clonedProp = _.clone(superClass[propName]);
+            const clonedProp = Object.assign({}, superClass[propName]);
 
             // IE10 doesn't provide inheritance of classes static properties, hence all static properties are
             // copied throughout inheritance chain
             targetClass[propName] = targetClass[propName] ?
-                    _.assign(clonedProp, targetClass[propName]) : clonedProp;
+                Object.assign(clonedProp, targetClass[propName]) : clonedProp;
         }
     }
 }
@@ -57,4 +59,45 @@ export function HandleRenderError(targetClass) {
 export function ReactClass(...args) {
     InheritStatic(...args);
     HandleRenderError(...args);
+}
+
+/**
+ * Mixes given mixins to target class, ensuring methods invocation order same as native React mixins feature.
+ * @decorator
+ */
+export function mixin(...mixins) {
+    return function (targetClass) {
+        const proto = targetClass.prototype;
+        const accumulator = {};
+
+        for (const mixin of mixins) {
+            for (const key in mixin) {
+                const prop = mixin[key];
+
+                if (typeof prop === 'function') {
+                    accumulator[key] = accumulator[key] || [];
+                    accumulator[key].push(prop);
+                }
+            }
+        }
+
+        for (const key in accumulator) {
+            const methods = accumulator[key];
+            const originalMethod = proto[key];
+
+            proto[key] = function (...args) {
+                let result;
+
+                for (const method of methods) {
+                    result = Reflect.apply(method, this, args);
+                }
+
+                if (originalMethod) {
+                    result = Reflect.apply(originalMethod, this, args);
+                }
+
+                return result;
+            };
+        }
+    };
 }
