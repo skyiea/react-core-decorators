@@ -1,6 +1,6 @@
 {
   "name": "react-core-decorators",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Core decorators for React project",
   "main": "lib/index.js",
   "repository": {
