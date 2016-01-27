@@ -1,6 +1,6 @@
 {
   "name": "react-core-decorators",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Core decorators for React project",
   "author": "Sergiy Murygin",
   "main": "lib/index.js",
