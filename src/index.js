@@ -1,11 +1,6 @@
-import InheritStatic from './decorators/inherit-static';
-import HandleRenderError from './decorators/handle-render-error';
-import mixin from './decorators/mixin';
-import ReactClass from './decorators/react-class';
-
-export default {
-    InheritStatic,
-    HandleRenderError,
-    mixin,
-    ReactClass
+module.exports = {
+    InheritStatic       : require('./decorators/inherit-static'),
+    HandleRenderError   : require('./decorators/handle-render-error'),
+    mixin               : require('./decorators/mixin'),
+    ReactClass          : require('./decorators/react-class')
 };
