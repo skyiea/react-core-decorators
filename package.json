@@ -21,6 +21,16 @@
     "url": "https://github.com/skyiea/react-core-decorators/issues"
   },
   "homepage": "https://github.com/skyiea/react-core-decorators#readme",
+  "keywords": [
+    "decorators",
+    "es6",
+    "es7",
+    "es2015",
+    "es2016",
+    "react",
+    "mixin",
+    "babel"
+  ],
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "react": "^0.14.6"
