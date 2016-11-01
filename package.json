@@ -12,7 +12,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "webpack --optimize-occurence-order --optimize-dedupe --progress",
+    "build": "webpack --optimize-occurence-order --optimize-dedupe --optimize-minimize --progress --bail",
     "watch": "webpack --progress --watch",
     "prepublish": "npm run build"
   },
@@ -31,10 +31,6 @@
     "mixin",
     "babel"
   ],
-  "dependencies": {
-    "babel-polyfill": "^6.3.14",
-    "react": "^0.14.6"
-  },
   "devDependencies": {
     "babel": "^6.3.26",
     "babel-cli": "^6.3.17",
@@ -48,5 +44,8 @@
     "eslint-loader": "^1.2.0",
     "eslint-plugin-react": "^3.16.1",
     "webpack": "^1.12.12"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0"
   }
 }

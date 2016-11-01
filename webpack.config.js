@@ -1,10 +1,9 @@
-import webpack from 'webpack';
-import path from 'path';
+const path = require('path');
 
 const SRC_PATH  = path.join(__dirname, 'src');
 const DIST_PATH = path.join(__dirname, 'lib');
 
-export default {
+module.exports = {
     entry: {
         index: [ path.join(SRC_PATH, '') ]
     },

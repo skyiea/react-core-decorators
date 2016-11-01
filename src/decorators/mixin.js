@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 /**
  * Mixes given mixins to target class, ensuring methods invocation order same as native React mixins feature.
  * @decorator
@@ -28,11 +26,11 @@ export default function (...mixins) {
                 let result;
 
                 for (const method of methods) {
-                    result = Reflect.apply(method, this, args);
+                    result = method.apply(this, args);
                 }
 
                 if (originalMethod) {
-                    result = Reflect.apply(originalMethod, this, args);
+                    result = originalMethod.apply(this, args);
                 }
 
                 return result;

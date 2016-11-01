@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import React from 'react';
 
 /**
@@ -16,7 +14,7 @@ export default function HandleRenderError(targetClass) {
 
         proto.render = function (...args) {
             try {
-                return Reflect.apply(originalRender, this, args);
+                return originalRender.apply(this, args);
             } catch (error) {
                 console.error(`Component failed to render: ${error.stack}`);
 
