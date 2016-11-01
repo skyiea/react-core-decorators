@@ -1,4 +1,11 @@
-export { InheritStatic } from './decorators/inherit-static';
-export { HandleRenderError } from './decorators/handle-render-error';
-export { mixin } from './decorators/mixin';
-export { ReactClass } from './decorators/react-class';
+import InheritStatic from './decorators/inherit-static';
+import HandleRenderError from './decorators/handle-render-error';
+import mixin from './decorators/mixin';
+import ReactClass from './decorators/react-class';
+
+module.exports = {
+    InheritStatic,
+    HandleRenderError,
+    mixin,
+    ReactClass
+};
