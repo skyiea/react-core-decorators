@@ -1,16 +1,18 @@
 const path = require('path');
 
 const SRC_PATH  = path.join(__dirname, 'src');
-const DIST_PATH = path.join(__dirname, 'lib');
+const DIST_PATH = path.join(__dirname, 'output');
 
 module.exports = {
+    context: SRC_PATH,
+
     entry: {
-        index: SRC_PATH
+        playground: './playground'
     },
     output: {
-        path            : DIST_PATH,
-        filename        : '[name].js',
-        libraryTarget   : 'commonjs2'
+        publicPath  : '/',
+        path        : DIST_PATH,
+        filename    : '[name].js',
     },
     resolve: {
         extensions: [ '', '.jsx', '.js' ]
@@ -19,7 +21,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
+                exclude: /node_modules|lib/,    // lib - react-core-decorators lib
                 loaders: [
                     'babel',
                     'eslint'
@@ -27,6 +29,8 @@ module.exports = {
             }
         ]
     },
-    // we don't want React to go into resulting bundle, it should remain as peer dep
-    externals: /^[@a-z\-0-9\/]+$/
+
+    stats: {
+        version: false
+    }
 };
