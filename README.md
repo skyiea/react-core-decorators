@@ -1,9 +1,12 @@
 # Core decorators for React project
 
+[![Build Status](https://img.shields.io/travis/skyiea/react-core-decorators.svg?style=flat-square)](https://travis-ci.org/skyiea/react-core-decorators) [![Version](https://img.shields.io/npm/v/react-core-decorators.svg?style=flat-square)](https://www.npmjs.com/package/react-core-decorators) [![Version](https://img.shields.io/npm/dm/react-core-decorators.svg?style=flat-square)](https://www.npmjs.com/package/react-core-decorators)
+
 Useful decorators that could be utilized in React projects which use class-based 
 definition of React components. (Keep in mind that decorators can't be used to
 decorate [Stateless React Components](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components)).
-To get more familiar with decorators pattern and its usage in ES6 read [this great article](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841).
+
+To get more familiar with decorator pattern and its usage in ES6 read [this great article](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841).
 
 ## Installation
 
